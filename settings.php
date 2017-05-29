@@ -21,5 +21,5 @@ if ("http://$_SERVER[HTTP_HOST]" == "http://localhost") {
 
 
 // CONNECT WITH DATABASE
-$connection = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname)
-or die(mysqli_error($connection));
+//$connection = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname)
+//or die(mysqli_error($connection));
