@@ -1,0 +1,234 @@
+/* STANDAARD ELEMENTEN */
+
+body {
+    font-family: 'Roboto Light', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    padding: 20px 15px 70px 15px;
+}
+
+hr {
+    max-width: 50px;
+    border-color: #90C3D4;
+    border-width: 3px;
+}
+
+hr.light {
+    border-color: #fff;
+}
+
+a {
+    color: #90C3D4;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+a:hover,
+a:focus {
+    color: #55A3BD;
+}
+
+a.light {
+    color: #dddada;
+}
+
+a.light:hover,
+a.light:focus {
+    color: #c6c3c3;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h3 {
+    padding-left: 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.label-upload {
+    cursor: pointer;
+}
+
+/* HEADER */
+
+header.main {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+header.main > div {
+    margin: 100px auto;
+    height: 70px;
+    line-height: 70px;
+}
+
+header.main > div > h1 {
+    font-size: 250%;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+header > div {
+    margin: 5% auto;
+    height: 30px;
+    line-height: 75px;
+}
+
+header > div > h1 {
+    font-size: 250%;
+}
+
+/* PORTFOLIO - PROJECTEN */
+
+.portfolio-box-caption {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 163px;
+    background: rgba(152, 149, 148, 0.60);
+}
+
+.portfolio-box-caption-content {
+    margin: 55px 50px 55px 50px;
+    position: absolute;
+    width: 200px;
+    height: 53px;
+
+}
+
+.portfolio-box-caption-content p {
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.no-padding > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.img-project {
+    margin: 15px 0;
+}
+
+/* ADMIN */
+
+/* Forms */
+.delete-form {
+    padding-left: 3px;
+    width: auto;
+}
+
+.upload-form {
+    padding: 0 0 5px 0;
+    width: auto;
+}
+
+
+/* BUTTONS */
+
+.btn {
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+}
+
+.btn-default {
+    background-color: darkgrey;
+    color: white;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: grey;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #90C3D4;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #55A3BD;
+}
+
+/* ICONS */
+
+.fa-blue {
+    color: #90C3D4;
+}
+
+/* SLY */
+/* Frame */
+
+.frame ul {
+    list-style: none;
+    margin: 30px 0 0 0;
+    padding: 0;
+    height: 100%;
+    font-size: 50px;
+}
+.frame ul li {
+    float: left;
+    width: 300px;
+    height: 163px;
+    margin: 0 1px 0 0;
+    padding: 0;
+    color: white;
+}
+
+.frame ul li a{
+    color: lightgrey;
+}
+
+.frame ul li.active a {
+    color: white;
+}
+
+/* Scrollbar */
+.scrollbar {
+    margin: 10px 0 10px 0;
+    padding: 0 0;
+    height: 2px;
+    background: #ccc;
+    line-height: 0;
+}
+.scrollbar .handle {
+    width: 100px;
+    height: 100%;
+    background: #292a33;
+    cursor: pointer;
+}
+
+/* Controls */
+.controls { margin: 25px 0; text-align: center; }
+
+
