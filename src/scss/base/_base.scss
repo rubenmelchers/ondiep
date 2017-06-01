@@ -1,0 +1,31 @@
+@import 'mixins';
+@import 'variables';
+@import 'font';
+@import 'footer';
+@import 'header';
+
+::selection {
+	background: $secondary;
+	color: $primary;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	overflow-x: hidden;
+}
+
+body {
+	position: relative;
+	background: darken($light, 2%);
+	box-sizing: border-box;
+	font-family: $basefont;
+	margin: 0;
+}
+
+div {
+	display: block;
+}
+

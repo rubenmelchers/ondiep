@@ -1,0 +1,18 @@
+$fixed-grid: false !default;
+$fixed-grid-fluid-xs: true !default;
+
+$container-max-width: 1160px !default;
+$container-margin: 0 auto !default;
+$container-padding: 20px !default;
+$container-padding-xs: 10px !default;
+
+$grid-class: col !default;
+$grid-columns: 12 !default;
+$grid-gutter: 20px !default;
+$grid-gutter-xs: 10px !default;
+
+$grid-bp-xs: 570px !default;
+$grid-bp-sm: 768px !default;
+$grid-bp-md: 992px !default;
+
+$screen-sizes: (md: $grid-bp-md, sm: $grid-bp-sm, xs: $grid-bp-xs) !default;
