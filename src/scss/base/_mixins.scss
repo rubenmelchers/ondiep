@@ -1,0 +1,38 @@
+@mixin fontloop($name, $weights) {
+	@each $weight in $weights {
+		@font-face {
+			font-family: $name;
+			src: url("../font/#{$name}/#{$name}-#{$weight}.ttf");
+			font-weight: $weight;
+		}
+	}
+}
+
+$extrasmall: 30em;
+$small: 48em;
+$medium: 62em;
+$large: 75em;
+
+@mixin mobile {
+  @media (max-width: #{$extrasmall}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$small}) and (max-width: #{$medium - 1em}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$large}) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media (max-width: #{$large}) {
+    @content;
+  }
+}

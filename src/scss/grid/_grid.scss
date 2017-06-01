@@ -1,0 +1,51 @@
+@import 'vars';
+@import 'mixins';
+
+.container {
+	margin: $container-margin;
+	padding: 0 $container-padding;
+
+	@include container-size();
+
+	@include mediaquery(smallest-bp()) {
+		padding: 0 $container-padding-xs;
+	}
+
+	&.container-fluid {
+		width: 100%;
+	}
+}
+
+.row {
+	@include clearfix();
+	position: relative;
+}
+
+[class*='#{$grid-class}-'] {
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+	padding-left: $grid-gutter / 2;
+	padding-right: $grid-gutter / 2;
+	float: left;
+	min-height: 1px;
+
+	& > & {
+		&:first-child,
+		&.col-#{$grid-columns} { padding-left: 0; }
+		&:last-child,
+		&.col-#{$grid-columns} { padding-right: 0; }
+	}
+
+	&.col-centered {
+		float: none;
+		margin: 0 auto;
+	}
+
+	@include mediaquery(smallest-bp()) {
+		padding-left: $grid-gutter-xs / 2;
+		padding-right: $grid-gutter-xs / 2;
+	}
+}
+
+@include create-grid();
