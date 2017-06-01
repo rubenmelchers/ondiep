@@ -18,6 +18,7 @@ var path = {
 	sassdest: destination + "/css",
 
 	scriptsrc: [
+		"src/script/jquery.js",
 		"src/script/**/*.js"
 	],
 	scriptdest: destination + "/js",

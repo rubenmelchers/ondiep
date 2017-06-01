@@ -1,16 +1,17 @@
 /**
+ * Created by Lennart on 01-06-17.
+ */
+
+/**
  * function to start te script
  */
-$(document).ready(function() {
-
+$(document).ready(function () {
 
     $('.drawer-toggle').on("click", function (e) {
         console.log("clicked");
 
         $('.drawer').toggleClass("drawer--open");
     });
-
-
 
 
     mapboxgl.accessToken = 'pk.eyJ1IjoibGVubmllMTMyIiwiYSI6ImNqMzhqZWQ3dDAwN2kzMnMyNjB1ejcwMjIifQ.vzgSNyqEVQbbJYLcDw8saQ';
