@@ -3,7 +3,7 @@
 
 	console.log("test2");
 
-	console.log("Lennart");
+	console.log("Lenn");
 
 
 })();
