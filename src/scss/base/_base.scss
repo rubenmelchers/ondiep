@@ -23,7 +23,8 @@ body {
 	background: darken($light, 2%);
 	box-sizing: border-box;
 	font-family: $basefont;
-	margin: 0;
+	margin: 0 auto;
+	max-width: 100%;
 }
 
 div {

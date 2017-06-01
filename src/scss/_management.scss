@@ -12,12 +12,39 @@
   -ms-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
-}
 
-.drawer--open {
-  left: 0;
-}
 
+
+  &.drawer--open {
+    left: 0;
+  }
+
+  .drawer__logo {
+    background-color: $white;
+    padding: 15px 64px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .drawer__filters {
+
+  }
+
+  .drawer__modus {
+
+  }
+
+  .drawer__time {
+
+  }
+
+  .drawer__postcode {
+
+  }
+
+}
 
 .drawer-toggle {
   position: absolute;
