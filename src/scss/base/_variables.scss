@@ -12,15 +12,18 @@ $transitionspeed: 250ms;
 $transitionspeedslower: 500ms;
 
 /************************/
-/* 		COLOR 			*/
+/* 		COLORS 			*/
 /************************/
 
-$color-construction: #00BB31;
-$color-cleaning: #00BBDC;
+//colors for app
+$app-primary: #565656;
+$app-water: #98D1F5;
 
-$primary: #89C4F4;
-$secondary: #364e61;
-$tertiary: #cfe7fa;
+$button-primary: #FDC46A;
+$button-secondary: #BD8C40;
+
+$info-primary: #81C5F0;
+$info-secondary: #038EE6;
 
 $black: #000;
 $blackish: #0b0b0b;
@@ -29,7 +32,6 @@ $dark: #0d1318;
 $white: #fff;
 $whitish: #fafafa;
 $light: #f3f9fd;
-
 
 /************************/
 /* 		easings 		*/
