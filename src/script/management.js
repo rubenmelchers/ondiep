@@ -7,7 +7,7 @@
  */
 $(document).ready(function () {
 
-    $('.drawer-toggle').on("click", function (e) {
+    $('.drawer__toggle').on("click", function (e) {
         console.log("clicked");
 
         $('.drawer').toggleClass("drawer--open");
@@ -18,8 +18,8 @@ $(document).ready(function () {
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [4.75785, 51.77207],
-        zoom: 10.7
+        center: [4.7047, 51.777],
+        zoom: 11.5
     });
 
     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");

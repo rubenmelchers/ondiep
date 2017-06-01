@@ -25,8 +25,56 @@
 <div class="drawer drawer--open">
     <div class="drawer__logo"><img src="public/img/dordrecht_logo.png" alt=""></div>
 
-    Hier komt de drawer zoals iedereen hem kent
-    <div class="drawer-toggle"></div>
+
+    <div class="drawer__content">
+        <div class="drawer__filters">
+            <p>Selecteer wat u wilt zien</p>
+
+            <div class="options">
+                <label class="filter filter--problems">
+                    <input type="checkbox" value="problems">Grondwaterproblemen
+                </label>
+                <label class="filter filter--monitoring_wells">
+                    <input type="checkbox" value="monitoring_wells">Peilbuizen
+                </label>
+                <label class="filter filter--rainfall">
+                    <input type="checkbox" value="rainfall">Regenval
+                </label>
+                <label class="filter filter--surface_water">
+                    <input type="checkbox" value="surface_water">Oppervlaktewater
+                </label>
+            </div>
+        </div>
+
+        <div class="drawer__mode">
+            <p>In welke modus</p>
+
+            <div class="options">
+
+                <button class="mode_button">Beheerder</button><button class="mode_button">Presentatie</button>
+
+            </div>
+        </div>
+
+        <div class="drawer__date">
+            <p>Van welk moment</p>
+
+            <div class="options">
+
+            </div>
+        </div>
+
+        <div class="drawer__location">
+            <p>Postcode specifiek</p>
+
+            <div class="options">
+
+            </div>
+        </div>
+    </div>
+    <div class="drawer__toggle">
+        <img src="public/img/drawer_arrow.svg" alt="">
+    </div>
 </div>
 <div id='map'></div>
 
