@@ -1,8 +1,17 @@
-$(init);
 /**
  * function to start te script
  */
-function init() {
+$(document).ready(function() {
+
+
+    $('.drawer-toggle').on("click", function (e) {
+        console.log("clicked");
+
+        $('.drawer').toggleClass("drawer--open");
+    });
+
+
+
 
     mapboxgl.accessToken = 'pk.eyJ1IjoibGVubmllMTMyIiwiYSI6ImNqMzhqZWQ3dDAwN2kzMnMyNjB1ejcwMjIifQ.vzgSNyqEVQbbJYLcDw8saQ';
     var map = new mapboxgl.Map({
@@ -12,7 +21,7 @@ function init() {
         zoom: 10.7
     });
 
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
     map.on('zoomend', function () {
         console.log(map.getZoom());
@@ -88,4 +97,4 @@ function init() {
         });
     });
 
-}
+});
