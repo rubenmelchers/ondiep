@@ -6,28 +6,28 @@
 @import 'font-awesome';
 
 ::selection {
-	background: $secondary;
-	color: $primary;
+  background: $secondary;
+  color: $primary;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 body {
-	position: relative;
-	background: darken($light, 2%);
-	box-sizing: border-box;
-	font-family: $basefont;
-	margin: 0 auto;
-	max-width: 100%;
+  position: relative;
+  background: darken($light, 2%);
+  box-sizing: border-box;
+  font-family: $basefont;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 div {
-	display: block;
+  display: block;
 }
 

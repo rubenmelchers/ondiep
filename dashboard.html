@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-control" content="no-cache"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ondiep">
     <meta name="author" content="">
@@ -23,58 +24,75 @@
 <body>
 
 <div class="drawer drawer--open">
-    <div class="drawer__logo"><img src="public/img/dordrecht_logo.png" alt=""></div>
+    <div class="drawer__inner">
+        <div class="drawer__logo"><img src="public/img/dordrecht_logo.png" alt=""></div>
 
 
-    <div class="drawer__content">
-        <div class="drawer__filters">
-            <p>Selecteer wat u wilt zien</p>
+        <div class="drawer__content">
+            <div class="drawer__filters">
+                <p>Selecteer wat u wilt zien</p>
 
-            <div class="options">
-                <label class="filter filter--problems">
-                    <input type="checkbox" value="problems">Grondwaterproblemen
-                </label>
-                <label class="filter filter--monitoring_wells">
-                    <input type="checkbox" value="monitoring_wells">Peilbuizen
-                </label>
-                <label class="filter filter--rainfall">
-                    <input type="checkbox" value="rainfall">Regenval
-                </label>
-                <label class="filter filter--surface_water">
-                    <input type="checkbox" value="surface_water">Oppervlaktewater
-                </label>
+                <div class="options">
+                    <div class="filter filter--reports">
+                        <input type="checkbox" id="reports" value="reports"/>
+                        <label for="reports">Grondwaterproblemen</label>
+                    </div>
+
+                    <div class="filter filter--monitoring_wells">
+                        <input type="checkbox" id="monitoring_wells" value="monitoring_wells"/>
+                        <label for="monitoring_wells">Peilbuizen</label>
+                    </div>
+
+                    <div class="filter filter--rainfall">
+                        <input type="checkbox" id="rainfall" value="rainfall"/>
+                        <label for="rainfall">Regenval</label>
+                    </div>
+
+                    <div class="filter filter--surface_water">
+                        <input type="checkbox" id="surface_water" value="surface_water"/>
+                        <label for="surface_water">Oppervlaktewater</label>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="drawer__mode">
-            <p>In welke modus</p>
+            <div class="drawer__mode">
+                <p>In welke modus</p>
 
-            <div class="options">
+                <div class="options options--blank">
 
-                <button class="mode_button">Beheerder</button><button class="mode_button">Presentatie</button>
+                    <button class="mode_button mode_button--selected">Beheerder</button>
+                    <button class="mode_button">Presentatie</button>
 
+                </div>
             </div>
-        </div>
 
-        <div class="drawer__date">
-            <p>Van welk moment</p>
+            <div class="drawer__date">
+                <p>Van welk moment</p>
 
-            <div class="options">
+                <div class="options">
 
+                </div>
             </div>
-        </div>
 
-        <div class="drawer__location">
-            <p>Postcode specifiek</p>
+            <div class="drawer__location">
+                <p>Postcode specifiek</p>
 
-            <div class="options">
+                <div class="options options--blank">
+                    <input type="text" placeholder="postcode">
+                    <button>Zoek</button>
+                </div>
+            </div>
 
+
+            <div class="drawer__disclaimer">
+                <p>                Data wordt gegenereerd op basis van gebruikers en andere open data bronnen. De voorspellingen kunnen daarom ook niet 100% accuraat zijn</p>
             </div>
         </div>
     </div>
     <div class="drawer__toggle">
         <img src="public/img/drawer_arrow.svg" alt="">
     </div>
+
 </div>
 <div id='map'></div>
 
