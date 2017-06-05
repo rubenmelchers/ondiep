@@ -1,0 +1,140 @@
+.screen1 {
+	background: $white;
+	height: 100vh;
+
+	.title {
+		position: relative;
+		height: 15%;
+
+		&__content {
+			text-align: center;
+			color: $app-primary;
+
+			h1 {
+				letter-spacing: 0.2rem;
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.info {
+		position: relative;
+		height: 15%;
+
+		&__text {
+			text-align: center;
+			color: $app-primary;
+			letter-spacing: .1rem;
+		}
+	}
+
+	.form {
+		position: relative;
+		height: 25%;
+		margin: 2rem 0;
+
+		label {
+			margin: 0.5rem 0;
+			width: 100%;
+			text-align: center;
+			height: 2rem;
+			padding: 1rem 2rem;
+			background: lighten($info-primary, 20%);
+			border: none;
+			font-size: 1.6rem;
+			font-family: $basefont;
+			border-radius: 10px;
+			letter-spacing: .1rem;
+			position: relative;
+		}
+
+		&__zipcode,
+		&__depth,
+		&__submit {
+			// width: 100%;
+			// text-align: center;
+			// height: 2rem;
+			// padding: 1rem 2rem;
+			// background: lighten($info-primary, 20%);
+			// border: none;
+			// font-size: 1.6rem;
+			// font-family: $basefont;
+			// border-radius: 10px;
+			// letter-spacing: .1rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			border: none;
+			padding: 0rem 2rem;
+			text-align: center;
+		}
+
+		&__zipcode {
+
+
+		}
+
+		&__depth {
+
+		}
+
+		&__submit {
+
+		}
+	}
+
+	.image {
+		height: 25%;
+		position: relative;
+
+		&__container {
+			height: 100%;
+		}
+
+		&__wrapper {
+			height: 100%;
+			position: relative;
+		}
+
+		&__house {
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+
+			background: {
+				image: url('../img/screen1_house.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+
+		}
+
+		&__car {
+			height: 6vh;
+			position: absolute;
+			bottom: 12%;
+			left: 50%;
+			transform: translateX(-20%);
+
+			background: {
+				image: url('../img/screen1_car.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+		}
+	}
+
+	.footer {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 2rem;
+		background: darken($app-water, 5%);
+	}
+}
