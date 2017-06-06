@@ -1,3 +1,11 @@
+<?php
+
+	if(isset($_GET["zipcode"]) && $_GET["depth"]) {
+		$depth = $_GET["depth"];
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -20,58 +28,31 @@
 
 </head>
 
-<body class="screen1">
+<body class="screen2">
 
 	<section class="title">
 		<div class="container">
 			<div class="row title__content">
 				<div class="col-12">
-					<h1>Waar woont u?</h1>
+					<h1>Grondwater</h1>
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<section class="hidden">
+		<span id="zipcode"><?php echo $zipcode ?></span>
+		<span id="number"><?php echo $number ?></span>
+		<span id="depth"><?php echo $depth ?></span>
 	</section>
 
 	<section class="info">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<div class="info__text">
-						Om u relevante informatie te geven over het grondwater onder uw huis, hebben we uw postcode en heipaal diepte nodig.
-					</div>
-				</div>
+				<div class="col-12" id="street"></div>
+				<div class="col-12" id="area"></div>
 			</div>
 		</div>
-	</section>
-
-	<section class="form">
-		<div class="container">
-			<div class="row">
-				<form action="screen2.php" method="get">
-
-					<label for="zipcode" class="col-6">
-						<input type="text" required pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" class="form__zipcode" placeholder="Uw postcode..." name="zipcode">
-					</label>
-
-					<label for="number" class="col-6">
-						<input type="number" required class="form__number" placeholder="huisnummer..." name="number">
-					</label>
-
-					<label for="depth" class="col-12">
-						<input type="number" required class="form__depth" placeholder="Diepte heipaal (in meters)..." name="depth">
-
-					</label>
-
-					<label for="submit" class="col-6">
-						<input type="submit" class="form__submit" value="Ga verder" name="submit">
-					</label>
-
-				</form>
-
-			</div>
-		</div>
-
-
 	</section>
 
 	<section class="image">
@@ -83,6 +64,16 @@
 				<div class="col-12 image__car">
 				</div>
 
+			</div>
+		</div>
+	</section>
+
+	<section class="cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<a href="screen3.php?depth=<?php echo $depth ?>" class="cta__button">Check mijn waterpeil!</a>
+				</div>
 			</div>
 		</div>
 	</section>

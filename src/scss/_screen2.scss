@@ -1,0 +1,102 @@
+.screen2 {
+	background: $white;
+	height: 100vh;
+
+	.title {
+		position: relative;
+		height: 15%;
+
+		&__content {
+			text-align: center;
+			color: $app-primary;
+
+			h1 {
+				letter-spacing: 0.2rem;
+				font-size: 1.4rem;
+			}
+		}
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	.info {
+		text-align: center;
+		color: $app-primary;
+
+		#area {
+			.info__error {
+				display: none;
+			}
+		}
+	}
+
+	.image {
+		height: 50%;
+		position: relative;
+		margin-bottom: 3rem;
+		padding-top: 2rem;
+
+		&__container {
+			height: 100%;
+		}
+
+		&__wrapper {
+			height: 100%;
+			position: relative;
+		}
+
+		&__house {
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+
+			background: {
+				image: url('../img/screen2_house.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+
+		}
+
+		&__car {
+			height: 5vh;
+			position: absolute;
+			top: 36%;
+			left: 45%;
+			transform: translateX(-20%);
+
+			background: {
+				image: url('../img/screen1_car.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+		}
+	}
+
+	.cta {
+		text-align: center;
+
+		&__button {
+			background: $button-primary;
+			padding: 1rem 1.5rem;
+			text-decoration: none;
+			font-weight: 800;
+			border-radius: 2.5rem;
+			color: $black;
+			box-shadow: 0.05rem 0.2rem 0 rgba($button-secondary, 100%);
+		}
+	}
+
+	.footer {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 2rem;
+		background: darken($app-water, 5%);
+	}
+}

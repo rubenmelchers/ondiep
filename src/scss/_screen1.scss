@@ -12,7 +12,7 @@
 
 			h1 {
 				letter-spacing: 0.2rem;
-				font-size: 1.5rem;
+				font-size: 1.4rem;
 			}
 		}
 	}
@@ -35,7 +35,6 @@
 
 		label {
 			margin: 0.5rem 0;
-			width: 100%;
 			text-align: center;
 			height: 2rem;
 			padding: 1rem 2rem;
@@ -46,21 +45,34 @@
 			border-radius: 10px;
 			letter-spacing: .1rem;
 			position: relative;
+
+			&:nth-of-type(1) {
+				margin-right: 5%;
+				width: 45%;
+			}
+
+			&:nth-of-type(2) {
+				margin-left: 5%;
+				width: 45%;
+			}
+
+			&:last-of-type {
+				background: $button-primary;
+				padding: 1rem 1.5rem;
+				text-decoration: none;
+				font-weight: 800;
+				border-radius: 2.5rem;
+				color: $black;
+				box-shadow: 0.05rem 0.2rem 0 rgba($button-secondary, 100%);
+				left: 50%;
+				transform: translateX(-50%);
+			}
 		}
 
 		&__zipcode,
 		&__depth,
-		&__submit {
-			// width: 100%;
-			// text-align: center;
-			// height: 2rem;
-			// padding: 1rem 2rem;
-			// background: lighten($info-primary, 20%);
-			// border: none;
-			// font-size: 1.6rem;
-			// font-family: $basefont;
-			// border-radius: 10px;
-			// letter-spacing: .1rem;
+		&__submit,
+		&__number {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -70,15 +82,15 @@
 			border: none;
 			padding: 0rem 2rem;
 			text-align: center;
+
 		}
 
 		&__zipcode {
 
-
 		}
 
-		&__depth {
-
+		&__depth,
+		&__number {
 		}
 
 		&__submit {

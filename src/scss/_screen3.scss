@@ -1,0 +1,200 @@
+.screen3 {
+	background: $white;
+	height: 100vh;
+
+	.title {
+		position: relative;
+		height: 15%;
+
+		&__content {
+			text-align: center;
+			color: $app-primary;
+
+			h1 {
+				letter-spacing: 0.2rem;
+				font-size: 1.4rem;
+			}
+		}
+	}
+
+	.info {
+
+		&__parent {
+			text-align: center;
+			word-spacing: 500rem;
+		}
+
+		&__desc {
+			margin-bottom: 1rem;
+		}
+
+		&__circle {
+			background: $app-water;
+			height: 5rem;
+			width: 5rem;
+			border-radius: 100%;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+			color: $white;
+			font-weight: 800;
+			letter-spacing: 0.1rem;
+			line-height: 6.5rem;
+			font-size: 1.4rem;
+
+			&:before {
+				content: "MV";
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -25%);
+				font-size: 1rem;
+				font-weight: 300;
+			}
+		}
+	}
+
+	.image {
+		height: 50%;
+		position: relative;
+		margin-bottom: 3rem;
+		padding-top: 2rem;
+
+		&__container {
+			height: 100%;
+		}
+
+		&__wrapper {
+			height: 100%;
+			position: relative;
+		}
+
+		&__house {
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+
+			background: {
+				image: url('../img/screen2_house.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+
+		}
+
+		&__car {
+			height: 5vh;
+			position: absolute;
+			top: 36%;
+			left: 45%;
+			transform: translateX(-20%);
+
+			background: {
+				image: url('../img/screen1_car.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+		}
+	}
+
+	.footer {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 2rem;
+		background: darken($app-water, 5%);
+		transition: 1s $easeInOutCubic;
+
+		&__wrapper {
+			background: $white;
+			border-radius: 25px;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+			margin-top: 2rem;
+			padding: 1rem 0;
+		}
+
+		&__title {
+			width: 80%;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+			text-align: center;
+			color: $black;
+			font-weight: 800;
+		}
+
+		&__list {
+			width: 80%;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		&__listitem {
+			margin-top: 0.5rem;
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+
+		&__cta {
+			background: $button-primary;
+			padding: 1rem 1.5rem;
+			text-decoration: none;
+			font-weight: 800;
+			border-radius: 2.5rem;
+			color: $black;
+			box-shadow: 0.05rem 0.2rem 0 rgba($button-secondary, 100%);
+			left: 50%;
+			bottom: 0;
+			transform: translate(-50%, 50%);
+			position: absolute;
+			width: 80%;
+			text-align: center;
+		}
+
+		&__trigger {
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: darken($app-water, 5%);
+			width: 3rem;
+			height: 3rem;
+			border-radius: 100%;
+
+			&:after {
+				content: "";
+				background: {
+					image: url("../img/arrow.png");
+					size: contain;
+					repeat: no-repeat;
+					position: 50% 50%;
+				}
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				transform: translate(-50%, -80%);
+				transition: 750ms $easeInOutCubic;
+
+			}
+		}
+
+		&.active {
+			height: 17rem;
+
+			.footer__trigger {
+				&:after {
+					transform: translate(-50%, -80%) rotate(-180deg);
+				}
+			}
+		}
+	}
+}

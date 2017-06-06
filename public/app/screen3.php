@@ -1,3 +1,10 @@
+<?php
+
+	if(isset($_GET["depth"])) {
+		$depth = $_GET["depth"];
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -20,13 +27,13 @@
 
 </head>
 
-<body class="screen1">
+<body class="screen3">
 
 	<section class="title">
 		<div class="container">
 			<div class="row title__content">
 				<div class="col-12">
-					<h1>Waar woont u?</h1>
+					<h1>Grondwater</h1>
 				</div>
 			</div>
 		</div>
@@ -35,43 +42,32 @@
 	<section class="info">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<div class="info__text">
-						Om u relevante informatie te geven over het grondwater onder uw huis, hebben we uw postcode en heipaal diepte nodig.
+				<div class="col-4 info__parent">
+					<div class="info__desc">
+						Uw hoogte
+					</div>
+					<div class="info__circle">
+
+					</div>
+				</div>
+				<div class="col-4 info__parent">
+					<div class="info__desc">
+						Heipaal diepte
+					</div>
+					<div class="info__circle">
+						<?php echo "-", $depth, "m" ?>
+					</div>
+				</div>
+				<div class="col-4 info__parent">
+					<div class="info__desc">
+						Grondwater hoogte
+					</div>
+					<div class="info__circle">
+
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-
-	<section class="form">
-		<div class="container">
-			<div class="row">
-				<form action="screen2.php" method="get">
-
-					<label for="zipcode" class="col-6">
-						<input type="text" required pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" class="form__zipcode" placeholder="Uw postcode..." name="zipcode">
-					</label>
-
-					<label for="number" class="col-6">
-						<input type="number" required class="form__number" placeholder="huisnummer..." name="number">
-					</label>
-
-					<label for="depth" class="col-12">
-						<input type="number" required class="form__depth" placeholder="Diepte heipaal (in meters)..." name="depth">
-
-					</label>
-
-					<label for="submit" class="col-6">
-						<input type="submit" class="form__submit" value="Ga verder" name="submit">
-					</label>
-
-				</form>
-
-			</div>
-		</div>
-
-
 	</section>
 
 	<section class="image">
@@ -85,9 +81,36 @@
 
 			</div>
 		</div>
+
+		<div class="image__water"></div>
 	</section>
 
+
+
 	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<a href="#" class="footer__trigger"></a>
+				</div>
+
+				<div class="col-8 footer__wrapper">
+					<div class="footer__title">
+						Ervaart u een van de volgende problemen?
+					</div>
+
+					<ul class="footer__list">
+						<li class="footer__listitem">Vochtige kelder</li>
+						<li class="footer__listitem">Stinkende kelder</li>
+						<li class="footer__listitem">Scheuren in de muur</li>
+						<li class="footer__listitem">Oppervlakte water</li>
+					</ul>
+
+					<a href="screen4.php" class="footer__cta">Geef het aan!</a>
+
+				</div>
+			</div>
+		</div>
 
 	</footer>
 
