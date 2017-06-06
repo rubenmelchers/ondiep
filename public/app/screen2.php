@@ -2,6 +2,10 @@
 
 	if(isset($_GET["zipcode"]) && $_GET["depth"]) {
 		$depth = $_GET["depth"];
+		$zipcode = $_GET["zipcode"];
+	} else {
+		header('location: screen1.php');
+		die();
 	}
 
 ?>
@@ -29,6 +33,10 @@
 </head>
 
 <body class="screen2">
+
+	<section class="backbutton">
+		<a href="screen1.php" class="backbutton__button"></a>
+	</section>
 
 	<section class="title">
 		<div class="container">
@@ -72,7 +80,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<a href="screen3.php?depth=<?php echo $depth ?>" class="cta__button">Check mijn waterpeil!</a>
+					<a href="screen3.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>" class="cta__button">Check mijn waterpeil!</a>
+				</div>
+				<div class="col-12">
+					<span class="cta__error">
+						Locatie is onbekend of buiten Dordrecht!
+					</span>
 				</div>
 			</div>
 		</div>

@@ -3,10 +3,6 @@
 
 	var container = document.querySelector(".screen2"),
 		API_KEY = "AIzaSyAgCBYM20Y5CGji2bX5gfFnPRdfX2RXWWk",
-		URL = "https://maps.googleapis.com/maps/api/geocode/json?address=schiedam+3123EJ&key=AIzaSyAgCBYM20Y5CGji2bX5gfFnPRdfX2RXWWk",
-		zipcode = "",
-		number = "",
-		depth = "",
 		params = {};
 
 	if(!container) {
@@ -23,11 +19,21 @@
 		}
 	}
 
-	zipcode = params.zipcode,
+	var zipcode = params.zipcode,
 	number = params.number,
 	depth = params.depth;
 
-	var queryOne = "https://maps.googleapis.com/maps/api/geocode/json?address=schiedam+" + zipcode + "&key=" + API_KEY;
+	var button = container.querySelector(".cta__button"),
+		errorEl = container.querySelector(".cta__error");
+
+	if(!zipcode || !number || !depth || button || errorEl) {
+		errorEl.classList.add("show");
+		button.classList.add("inactive");
+
+		return;
+	}
+
+	var queryOne = "https://maps.googleapis.com/maps/api/geocode/json?address=" + zipcode + "&key=" + API_KEY;
 
 
 	loadJSON(queryOne, function(data) {
@@ -41,8 +47,18 @@
 			var results = dataset.results[0];
 
 			var streetname = results.address_components[1].long_name,
-				area = results.address_components[4].long_name,
-				city = results.address_components[3].long_name;
+				area = results.address_components[5].long_name,
+				city = results.address_components[3].long_name,
+				queryThree = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "+" + streetname + "+" + number + "+" + zipcode + "&key=" + API_KEY;
+
+				//query is eigenlijk niet nodig. Huidige query weet niet welk huisnummer er opgehaald wordt, maar dit geeft gebruiker al zelf mee.
+			// loadJSON(queryThree, function(finaldata) {
+
+			// 	console.log(finaldata.results[0]);
+
+			// }, function(errormessage) {
+			// 	console.error(errormessage);
+			// })
 
 			var streetnameElement = createElement(streetname, city, "streetname"),
 				areaElement = createElement(area, city, "area");
@@ -50,10 +66,35 @@
 			var streetParent = document.getElementById("street"),
 				areaParent = document.getElementById("area");
 
+
+			if(city == "Dordrecht" || city == "dordrecht" || city == "Schiedam") {
+				button.classList.remove("inactive");
+				errorEl.classList.remove("show");
+				streetParent.classList.remove("inactive");
+				areaParent.classList.remove("inactive");
+
+				console.log("TEST");
+				console.log("" + number);
+
+			} else if (city == "" || city == "undefined" || city == null || number == "undefined" || number == "") {
+
+				errorEl.classList.add("show");
+				button.classList.add("inactive");
+				streetParent.classList.add("inactive");
+				areaParent.classList.add("inactive");
+
+				console.log("city is undefined");
+
+			} else {
+				errorEl.classList.add("show");
+				button.classList.add("inactive");
+
+				console.log("TEST@");
+			}
+
 			streetParent.appendChild(streetnameElement);
 			areaParent.appendChild(areaElement);
-
-			console.log(streetname, area);
+			// console.log(streetname, area, city);
 
 			console.log(results);
 

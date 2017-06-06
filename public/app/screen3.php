@@ -1,8 +1,13 @@
 <?php
 
-	if(isset($_GET["depth"])) {
+	if(isset($_GET["zipcode"]) && $_GET["depth"]) {
 		$depth = $_GET["depth"];
+		$zipcode = $_GET["zipcode"];
+	} else {
+		header('location: screen1.php');
+		die();
 	}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +33,28 @@
 </head>
 
 <body class="screen3">
+
+	<section class="backbutton">
+		<?php
+
+			if(!$depth || !$zipcode) {
+				?>
+				<a href="screen1.php" class="backbutton__button"></a>
+
+				<?php
+
+			} else {
+
+				?>
+				<a href="screen2.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>" class="backbutton__button"></a>
+
+				<?php
+
+
+			}
+
+		?>
+	</section>
 
 	<section class="title">
 		<div class="container">
@@ -106,7 +133,7 @@
 						<li class="footer__listitem">Oppervlakte water</li>
 					</ul>
 
-					<a href="screen4.php" class="footer__cta">Geef het aan!</a>
+					<a href="screen4.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>" class="footer__cta">Geef het aan!</a>
 
 				</div>
 			</div>

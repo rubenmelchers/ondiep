@@ -15,8 +15,19 @@
 	}
 
 	footertrigger.addEventListener("click", function() {
-		console.log("test");
 		footer.classList.toggle("active");
 	});
+
+	var water = container.querySelector(".image__water");
+
+	if (!water) {
+		return;
+	}
+
+	setTimeout(function() {
+
+		water.classList.add("show");
+
+	}, 1500);
 
 })();

@@ -2,6 +2,43 @@
 	background: $white;
 	height: 100vh;
 
+	.backbutton {
+		position: fixed;
+		top: 1rem;
+		left: 1rem;
+		width: 2rem;
+		height: 2rem;
+		z-index: 2;
+
+		&__button {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+
+			&:after {
+				content: "";
+				background: {
+					image: url("../img/arrow.png");
+					size: contain;
+					repeat: no-repeat;
+					position: 50% 50%;
+				}
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				transform: translate(-50%, -50%) rotate(-90deg);
+				transition: 750ms $easeInOutCubic;
+				filter: invert(100%);
+
+			}
+		}
+	}
+
 	.title {
 		position: relative;
 		height: 15%;
@@ -97,6 +134,30 @@
 				position: 50% 50%;
 			}
 		}
+
+		&__water {
+			position: fixed;
+			width: 100%;
+			height: 50vh;
+			top: 100%;
+			transition: 2s $easeInOutQuart;
+			// animation: {
+			// 	name: slideInUp;
+			// 	duration: 1s;
+			// 	delay: 2s;
+			// }
+
+			background: {
+				image: url('../img/water.png');
+				repeat: no-repeat;
+				size: cover;
+				position: 0 0;
+			}
+
+			&.show {
+				top: 65%;
+			}
+		}
 	}
 
 	.footer {
@@ -105,7 +166,7 @@
 		right: 0;
 		bottom: 0;
 		height: 2rem;
-		background: darken($app-water, 5%);
+		background: darken($app-water, 15%);
 		transition: 1s $easeInOutCubic;
 
 		&__wrapper {
@@ -163,7 +224,7 @@
 			position: absolute;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			background: darken($app-water, 5%);
+			background: darken($app-water, 15%);
 			width: 3rem;
 			height: 3rem;
 			border-radius: 100%;

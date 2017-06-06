@@ -1,3 +1,15 @@
+<?php
+
+	if(isset($_GET["zipcode"]) && $_GET["depth"]) {
+		$depth = $_GET["depth"];
+		$zipcode = $_GET["zipcode"];
+	} else {
+		header('location: screen1.php');
+		die();
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -22,6 +34,10 @@
 
 <body class="screen4">
 
+	<section class="backbutton">
+		<a href="screen3.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>" class="backbutton__button"></a>
+	</section>
+
 	<section class="title">
 		<div class="container">
 			<div class="row title__content">
@@ -45,7 +61,7 @@
 					Waterbeheer Dordrecht is op de hoogte van uw wateroverlast. We gaan er zo spoedig mogelijk mee aan de slag!
 				</div>
 
-				<a href="screen1.html" class="info__cta">Ok</a>
+				<a href="screen1.php" class="info__cta">Ok</a>
 			</div>
 
 
