@@ -106,6 +106,7 @@
 				<div class="col-12 image__car">
 				</div>
 
+				<div class="col-1 image__alert"></div>
 			</div>
 		</div>
 

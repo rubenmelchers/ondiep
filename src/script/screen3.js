@@ -18,9 +18,10 @@
 		footer.classList.toggle("active");
 	});
 
-	var water = container.querySelector(".image__water");
+	var water = container.querySelector(".image__water"),
+		alert = container.querySelector(".image__alert");
 
-	if (!water) {
+	if (!water || !alert) {
 		return;
 	}
 
@@ -29,5 +30,11 @@
 		water.classList.add("show");
 
 	}, 1500);
+
+	setTimeout(function() {
+
+		alert.classList.add("show");
+
+	}, 4000);
 
 })();

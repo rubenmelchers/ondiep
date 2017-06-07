@@ -26,9 +26,11 @@
 	var button = container.querySelector(".cta__button"),
 		errorEl = container.querySelector(".cta__error");
 
-	if(!zipcode || !number || !depth || button || errorEl) {
+	if(!zipcode || !number || !depth || !button || !errorEl) {
 		errorEl.classList.add("show");
 		button.classList.add("inactive");
+
+		console.log("stopping: no data");
 
 		return;
 	}

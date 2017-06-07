@@ -158,6 +158,30 @@
 				top: 65%;
 			}
 		}
+
+		&__alert {
+			position: fixed;
+			left: 50%;
+			top: 75%;
+			transform: translateX(-50%);
+			z-index: 3;
+			height: 3rem;
+			transition: 1000ms $easeInOutQuart;
+			opacity: 0;
+
+
+			background: {
+				image: url('../img/alert.png');
+				repeat: no-repeat;
+				size: contain;
+				position: 50% 50%;
+			}
+
+			&.show {
+				opacity: 1;
+
+			}
+		}
 	}
 
 	.footer {
@@ -165,6 +189,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+		z-index: 5;
 		height: 2rem;
 		background: darken($app-water, 15%);
 		transition: 1s $easeInOutCubic;
