@@ -73,7 +73,7 @@
 					<div class="info__desc">
 						Uw hoogte
 					</div>
-					<div class="info__circle">
+					<div class="info__circle" id="device-height">
 
 					</div>
 				</div>
