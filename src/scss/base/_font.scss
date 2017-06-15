@@ -8,8 +8,13 @@
 		$weights: (100, 200, 300, 400, 500, 600, 700, 800, 900)
 	);
 
-$basefont: "Roboto", sans-serif;
-$headerfont: "montserrat", sans-serif;
+@include fontloop(
+		$name: "roboto",
+		$weights: (400, 600, 800)
+	);
+
+$basefont: "roboto", sans-serif;
+$headerfont: "roboto", sans-serif;
 
 p {
 	font-family: $basefont;
