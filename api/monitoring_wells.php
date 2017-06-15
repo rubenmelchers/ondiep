@@ -89,20 +89,20 @@ switch ($method) {
         $end_array = [];
         $items = [];
         $items_collection = [];
-        $links_collection = [array('rel' => 'self', 'href' => $base)];
+        $links_collection = [array('rel' => 'self', 'href' => $url_base)];
         $pagination_collection = [
             'currentPage' => $page_current,
             'currentItems' => $result_items->num_rows,
             'totalPages' => $page_total,
             'totalItems' => $result->num_rows,
             'links' => Array(
-                Array('rel' => 'first', 'page' => 1, 'href' => $base . $url_first),
-                Array('rel' => 'last', 'page' => $page_last, 'href' => $base . $url_last),
-                Array('rel' => 'previous', 'page' => $page_previous, 'href' => $base . $url_previous),
-                Array('rel' => 'next', 'page' => $page_next, 'href' => $base . $url_next)
+                Array('rel' => 'first', 'page' => 1, 'href' => $url_base . $url_first),
+                Array('rel' => 'last', 'page' => $page_last, 'href' => $url_base . $url_last),
+                Array('rel' => 'previous', 'page' => $page_previous, 'href' => $url_base . $url_previous),
+                Array('rel' => 'next', 'page' => $page_next, 'href' => $url_base . $url_next)
             )];
         while ($item = mysqli_fetch_assoc($result_items)) {
-            $links = [array('rel' => 'self', 'href' => ($base . $item['id'])), array('rel' => 'collection', 'href' => $base)];
+            $links = [array('rel' => 'self', 'href' => ($url_base . $item['id'])), array('rel' => 'collection', 'href' => $url_base)];
             $item['links'] = $links;
             $items_collection[] = $item;
             if (!empty($id)) {

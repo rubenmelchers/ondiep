@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
 
     map.on('click', function (e) {
-        //console.log(e);
+        console.log(e);
     });
 
     map.on('load', function () {

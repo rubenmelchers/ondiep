@@ -49,11 +49,11 @@ function onMonitoringWellsReady() {
                 "type": "Feature",
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [item.longitude, item.latitude]
+                    "coordinates": [item.longitude - 0.000336, item.latitude - 0.0009468]
                 },
                 "properties": {
                     "name": item.name,
-                    "description": item.straat + " " + item.huisnummer
+                    "description": "<h4>" + item.straat + "</h4>" + "<h5>" + item.huisnummer + "</h5>"
                 }
             }
         );
