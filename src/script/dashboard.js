@@ -64,7 +64,7 @@ function onMonitoringWellsReady() {
 }
 
 function getReports(callback) {
-    var url = "http://localhost/ondiep/api/reports.php";
+    var url = "https://stud.hosted.hr.nl/0889496/Jaar%203/ondiep/api/reports.php";
     var request = new XMLHttpRequest();
     request.addEventListener('load', callback);
     request.open("GET", url, true);
@@ -74,7 +74,7 @@ function getReports(callback) {
 
 
 function getMonitoringWells(callback) {
-    var url = "http://localhost/ondiep/api/monitoring_wells.php?limit=3050";
+    var url = "https://stud.hosted.hr.nl/0889496/Jaar%203/ondiep/api/monitoring_wells.php";
     var request = new XMLHttpRequest();
     request.addEventListener('load', callback);
     request.open("GET", url, true);

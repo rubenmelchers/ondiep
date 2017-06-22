@@ -7,7 +7,8 @@ $format = $_SERVER['HTTP_ACCEPT'];
 $table = "peilbuizen";
 $fields = [ 'id', 'peilbuiscode', 'straat', 'huisnummer', 'longitude', 'latitude', 'created_at', 'updated_at'];
 
-header('Access-Control-Allow-Origin: http://localhost:63342');
+// header('Access-Control-Allow-Origin: http://localhost:8888');
+header('Access-Control-Allow-Origin: http://localhost');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

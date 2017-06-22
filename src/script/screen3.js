@@ -25,6 +25,9 @@
 		return;
 	}
 
+	getLocation();
+
+
 	setTimeout(function() {
 
 		water.classList.add("show");
@@ -41,8 +44,8 @@
 		if (navigator.geolocation) {
 			navigator.geolocation.watchPosition(showAltitude, showError);
 		} else {
-			// x.innerHTML = "Geolocation is not supported by this browser.";
 			console.log("Geolocation is not supported by this browser");
+			window.alert("Hoogte kan niet opgemeten worden");
 		}
 	}
 
@@ -70,8 +73,6 @@
 		var altitudeToShow = round(pos.coords.altitude, 1),
 		element = document.getElementById('device-height');
 
-		// window.alert("test");
-
 		if(altitudeToShow) {
 			console.log("ALTITUDE");
 			console.log(altitudeToShow);
@@ -81,6 +82,7 @@
 			console.log("no altitude");
 			console.log(altitudeToShow);
 			element.innerHTML = "?"
+			window.confirm("Apparaat kan geen hoogte opmeten!");
 
 		}
 	}
@@ -90,7 +92,6 @@
 		return Math.round(value * multiplier) / multiplier;
 	}
 
-	getLocation();
 
 
 

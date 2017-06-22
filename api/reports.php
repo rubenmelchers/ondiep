@@ -7,7 +7,7 @@ $format = $_SERVER['HTTP_ACCEPT'];
 $table = "reports";
 $fields = [ 'subject', 'description', 'name', 'email', 'postcode', 'coordinate_x', 'coordinate_y'];
 
-header('Access-Control-Allow-Origin: http://localhost:63342');
+header('Access-Control-Allow-Origin: http://localhost:8888');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

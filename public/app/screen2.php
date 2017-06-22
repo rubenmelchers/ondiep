@@ -80,6 +80,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
+					<input type="hidden" id="inputX">
 					<a href="screen3.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>" class="cta__button">Check mijn waterpeil!</a>
 				</div>
 				<div class="col-12">
