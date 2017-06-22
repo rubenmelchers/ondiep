@@ -5,7 +5,9 @@ $method = $_SERVER['REQUEST_METHOD'];
 $format = $_SERVER['HTTP_ACCEPT'];
 
 $table = "peilbuizen";
-$fields = [ 'id', 'peilbuiscode', 'straat', 'huisnummer', 'longitude', 'latitude', 'created_at', 'updated_at'];
+$fields = ['id', 'peilbuiscode', 'straat', 'huisnummer', 'longitude', 'latitude'];
+$table_join = "peilbuis_meting";
+$fields_join = ['id', 'peilbuis_id', 'nap_hoogte_meetpunt', 'meetdatum', 'grondwaterstand', 'nap_hoogte_maaiveld'];
 
 header('Access-Control-Allow-Origin: http://localhost:63342');
 
@@ -20,6 +22,15 @@ if (isset($_GET['start'])) {
 }
 if (isset($_GET['limit'])) {
     $limit = $_GET['limit'];
+}
+if (isset($_GET['date'])) {
+    $date = $_GET['date'];
+}
+if (isset($_GET['lat'])) {
+    $lat = $_GET['lat'];
+}
+if (isset($_GET['lng'])) {
+    $lng = $_GET['lng'];
 }
 
 switch ($method) {
@@ -67,7 +78,20 @@ switch ($method) {
             $url_next = "";
         }
 
-        $query = "SELECT * FROM $table ";
+        $query = "SELECT * FROM $table";
+
+        if (!empty($lat) && !empty($lng)) {
+            $query = "SELECT
+                        $table.*, 
+                        SQRT(POW(69.1 * (latitude - $lat), 2) + POW(69.1 * ($lng - longitude) * COS(latitude / 57.3), 2)) 
+                          AS distance
+                      FROM 
+                        $table 
+                      HAVING 
+                        distance < 10
+                      ORDER BY 
+                        distance";
+        }
 
         if (!empty($id)) {
             $query .= " WHERE id = " . $id;
@@ -84,7 +108,7 @@ switch ($method) {
         }
 
         $result_items = mysqli_query($connection, $query) or die(mysqli_error($connection));
-
+        //print_r($result_items);
         // ARRAY BUILD
         $end_array = [];
         $items = [];
@@ -104,6 +128,15 @@ switch ($method) {
         while ($item = mysqli_fetch_assoc($result_items)) {
             $links = [array('rel' => 'self', 'href' => ($url_base . $item['id'])), array('rel' => 'collection', 'href' => $url_base)];
             $item['links'] = $links;
+
+            $query = "SELECT * FROM {$table_join} WHERE peilbuis_id = {$item['id']}";
+            if (!empty($date)) {
+                $query .= " AND meetdatum LIKE '{$date}%'";
+            }
+            $query .= " ORDER BY meetdatum DESC LIMIT 1;";
+
+            $result_records = mysqli_query($connection, $query) or die(mysqli_error($connection));
+            $item['meting'] = mysqli_fetch_assoc($result_records);
             $items_collection[] = $item;
             if (!empty($id)) {
                 $end_array = $item;
@@ -128,8 +161,7 @@ switch ($method) {
                 http_response_code(404);
             } else {
                 header('Content-type: application/xml');
-                function array_to_xml($data, &$xml_data)
-                {
+                function array_to_xml($data, &$xml_data) {
                     foreach ($data as $key => $value) {
                         if (is_array($value)) {
                             if (is_numeric($key)) {
@@ -234,7 +266,7 @@ switch ($method) {
             }
 
             if ($data_check == true) {
-                $query = "UPDATE `$table` SET " . implode(",", $values) . " WHERE `id` = " .$id;
+                $query = "UPDATE `$table` SET " . implode(",", $values) . " WHERE `id` = " . $id;
 
                 if (mysqli_query($connection, $query)) {
                     $last_id = mysqli_insert_id($connection);
