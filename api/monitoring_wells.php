@@ -137,7 +137,12 @@ switch ($method) {
 
             $result_records = mysqli_query($connection, $query) or die(mysqli_error($connection));
             $item['meting'] = mysqli_fetch_assoc($result_records);
-            $items_collection[] = $item;
+            //print_r("<br>ITEM:");
+            //print_r($item);
+            //print_r($date);
+            if ((!empty($date) && $item['meting'] != null) || empty($date)) {
+                $items_collection[] = $item;
+            }
             if (!empty($id)) {
                 $end_array = $item;
             }
