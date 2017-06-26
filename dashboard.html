@@ -43,15 +43,15 @@
                         <label for="monitoring_wells">Peilbuizen</label>
                     </div>
 
-                    <div class="filter filter--rainfall">
-                        <input type="checkbox" id="rainfall" value="rainfall"/>
-                        <label for="rainfall">Regenval</label>
-                    </div>
+                    <!--<div class="filter filter&#45;&#45;rainfall">-->
+                    <!--<input type="checkbox" id="rainfall" value="rainfall"/>-->
+                    <!--<label for="rainfall">Regenval</label>-->
+                    <!--</div>-->
 
-                    <div class="filter filter--surface_water">
-                        <input type="checkbox" id="surface_water" value="surface_water"/>
-                        <label for="surface_water">Oppervlaktewater</label>
-                    </div>
+                    <!--<div class="filter filter&#45;&#45;surface_water">-->
+                    <!--<inpput type="checkbox" id="surface_water" value="surface_water"/>-->
+                    <!--<label for="surface_water">Oppervlaktewater</label>-->
+                    <!--</div>-->
                 </div>
             </div>
 
@@ -60,8 +60,8 @@
 
                 <div class="options options--blank">
 
-                    <button class="mode_button mode_button--selected">Beheerder</button>
-                    <button class="mode_button">Presentatie</button>
+                    <button data-mode="manage" class="mode_button mode_button--selected">Beheerder</button>
+                    <button data-mode="presentation" class="mode_button">Presentatie</button>
 
                 </div>
             </div>
@@ -70,7 +70,24 @@
                 <p>Van welk moment</p>
 
                 <div class="options">
+                    <div class="filter">
+                        <input type="checkbox" id="latest" checked="checked"/>
+                        <label for="this_month" id="latest_label">Laatst beschikbaar</label>
+                    </div>
 
+                    <div class="filter">
+                        <input type="checkbox" id="this_month"/>
+                        <label for="this_month" id="this_month_label">Huidige maand -</label>
+                    </div>
+
+                    <div class="filter">
+                        <input type="checkbox" id="previous_month"/>
+                        <label for="previous_month" id="previous_month_label">Vorige maand -</label>
+                    </div>
+
+                    <div class="filter">
+                        <input type="month" id="date_search"/>
+                    </div>
                 </div>
             </div>
 
@@ -78,11 +95,10 @@
                 <p>Postcode specifiek</p>
 
                 <div class="options options--blank">
-                    <input type="text" placeholder="postcode">
-                    <button>Zoek</button>
+                    <input type="text" id="input_location" placeholder="postcode">
+                    <button id="search_location" >Zoek</button>
                 </div>
             </div>
-
 
             <div class="drawer__disclaimer">
                 <p> Data wordt gegenereerd op basis van gebruikers en andere open data bronnen. De voorspellingen kunnen
