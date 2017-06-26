@@ -142,7 +142,7 @@ $(document).ready(function () {
         postcode = postcode.replace(" ", "");
 
         if (postcode != "") {
-            var url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + postcode;
+            var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + postcode;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
