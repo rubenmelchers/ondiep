@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    if (document.getElementById('map')) {
+        setDatePicker();
+    }
+
     $('.drawer__toggle').on("click", function () {
         $('.drawer').classList.toggle("drawer--open");
     });
@@ -100,8 +104,6 @@ $(document).ready(function () {
         }
     });
 
-    setDatePicker();
-
     $('.drawer__date .filter input[type=checkbox]#latest').on('change', function (e) {
         document.getElementById("this_month").checked = false;
         document.getElementById("previous_month").checked = false;
@@ -151,7 +153,10 @@ $(document).ready(function () {
                     var lng = json.results[0].geometry.location.lng;
                     var lat = json.results[0].geometry.location.lat;
                     var place = json.results[0].formatted_address;
-                    getMonitoringWells(onMonitoringWellsReady, [{param: "limit", val: 5}, {param: "lat", val: lat}, {param: "lng", val: lng}]);
+                    getMonitoringWells(onMonitoringWellsReady, [{param: "limit", val: 5}, {
+                        param: "lat",
+                        val: lat
+                    }, {param: "lng", val: lng}]);
                     if (map.getLayer('search_point')) {
                         map.removeLayer("search_point");
                         map.removeSource("search_point");
