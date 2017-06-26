@@ -1,7 +1,9 @@
 (function() {
 	'use strict';
 
-	var container = document.querySelector(".screen3");
+	var container = document.querySelector(".screen3"),
+		API_KEY = "AIzaSyAgCBYM20Y5CGji2bX5gfFnPRdfX2RXWWk",
+		params = {};
 
 	if(!container) {
 		return;
@@ -25,6 +27,9 @@
 		return;
 	}
 
+	getLocation();
+
+
 	setTimeout(function() {
 
 		water.classList.add("show");
@@ -39,10 +44,12 @@
 
 	function getLocation() {
 		if (navigator.geolocation) {
-			navigator.geolocation.watchPosition(showAltitude, showError);
+
+			navigator.geolocation.watchPosition(getPosition, showError);
+
 		} else {
-			// x.innerHTML = "Geolocation is not supported by this browser.";
 			console.log("Geolocation is not supported by this browser");
+			window.alert("Hoogte kan niet opgemeten worden");
 		}
 	}
 
@@ -66,11 +73,61 @@
 		}
 	}
 
-	function showAltitude(pos) {
-		var altitudeToShow = round(pos.coords.altitude, 1),
-		element = document.getElementById('device-height');
+	if (location.search) {
+		var parts = location.search.substring(1).split('&');
 
-		// window.alert("test");
+		for (var i = 0; i < parts.length; i++) {
+			var nv = parts[i].split('=');
+			if (!nv[0]) continue;
+			params[nv[0]] = nv[1] || true;
+		}
+	}
+
+	var zipcode = params.zipcode,
+		number = params.number,
+		depth = params.depth;
+
+	var queryOne = "https://maps.googleapis.com/maps/api/geocode/json?address=" + zipcode + "&key=" + API_KEY;
+
+
+	loadJSON(queryOne, function(data) {
+
+		var lat = data.results[0].geometry.location.lat,
+			lng = data.results[0].geometry.location.lng,
+			queryTwo = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "&key=" + API_KEY,
+			poleUrl = "https://stud.hosted.hr.nl/0889496/Jaar%203/ondiep/api/monitoring_wells.php?lat=" + lat + "&lng=" + lng + "&limit=1";
+
+			console.log(poleUrl);
+
+			loadJSON(poleUrl, function(dataset) {
+
+				var results = dataset.items[0].meting.grondwaterstand,
+					waterheight = round(results, 1),
+					waterElem = document.getElementById('water-height');
+
+				if(waterheight) {
+					waterElem.innerHTML = waterheight;
+				} else {
+					waterElem.innerHTML = "?";
+				}
+
+				console.log(waterheight);
+
+			}, function(xhr) {
+				console.error(xhr);
+			})
+
+
+	}, function(xhr) {
+		console.error(xhr);
+	})
+
+	function getPosition(pos) {
+		var altitudeToShow = round(pos.coords.altitude, 1),
+			latitude = pos.coords.latitude,
+			longitude = pos.coords.longitude,
+			element = document.getElementById('device-height');
+		// console.log(poleUrl);
 
 		if(altitudeToShow) {
 			console.log("ALTITUDE");
@@ -81,6 +138,7 @@
 			console.log("no altitude");
 			console.log(altitudeToShow);
 			element.innerHTML = "?"
+			window.confirm("Apparaat kan geen hoogte opmeten!");
 
 		}
 	}
@@ -90,8 +148,25 @@
 		return Math.round(value * multiplier) / multiplier;
 	}
 
-	getLocation();
-
+	function loadJSON(path, success, error)	{
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					if (success)
+						success(JSON.parse(xhr.responseText));
+				} else {
+					if (error)
+						error(xhr);
+				}
+			}
+		};
+		xhr.open("GET", path, true);
+		// xhr.overrideMimeType("application/json"),
+		// xhr.setRequestHeader("accept", "application/json");
+		xhr.send();
+	}
 
 
 

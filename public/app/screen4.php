@@ -48,24 +48,78 @@
 		</div>
 	</section>
 
+	<div id="loader"></div>
+
+	<section class="form inactive" id="formsection">
+		<div class="container">
+			<div class="row">
+				<div class="endform">
+
+						<label for="name" class="col-12" class="namelabel">
+						<input type="text" placeholder="Naam..." name="name" id="inputname" >
+						</label>
+
+						<label for="email" class="col-12" class="emaillabel">
+						<input type="email" placeholder="E-mail..." name="email" id="inputemail" >
+						</label>
+
+						<label for="subject" class="col-12" class="subjectlabel">
+							<select name="subject" id="inputsubject" >
+								<option value="grondwater">Grondwater</option>
+								<option value="hoogwater">Hoogwater</option>
+								<option value="oppervlakte">Oppervlakte water</option>
+							</select>
+						</label>
+
+						<label for="description" class="col-12" class="desclabel">
+							<input type="textarea" placeholder="Wat is er aan de hand?" name="description" id="inputdescription" >
+						</label>
+
+						<input type="hidden" class="zipcode" value="<?php echo $zipcode ?>" id="inputzipcode">
+
+						<label for="submit" class="col-12" class="submitlabel" id="submitlabel">
+							<input type="submit" value="Verstuur" name="submit" class="form__submit" id="inputsubmit" >
+						</label>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="info">
 		<div class="container">
 			<div class="row">
 
-			<div class="col-10 info__wrapper">
-				<div class="info__title">
-					Uw klacht is ingediend!
-				</div>
+				<div class="col-10 info__wrapper info__wrapper--success">
+					<div class="info__title">
+						Uw klacht is ingediend!
+					</div>
 
-				<div class="info__desc">
-					Waterbeheer Dordrecht is op de hoogte van uw wateroverlast. We gaan er zo spoedig mogelijk mee aan de slag!
-				</div>
+					<div class="info__desc">
+						Waterbeheer Dordrecht is op de hoogte van uw wateroverlast. We gaan er zo spoedig mogelijk mee aan de slag!
+					</div>
 
-				<a href="screen1.php" class="info__cta">Ok</a>
+					<a href="screen1.php" class="info__cta">Ok</a>
+				</div>
 			</div>
+		</div>
+	</section>
 
+	<section class="error" id="errormessage">
+		<div class="container">
+			<div class="row">
+				<div class="col 10 error__wrapper">
+					<div class="error__title">
+						Er is iets mis gegaan!
+					</div>
 
+					<div class="error__desc">
+						Heeft u alle velden ingevuld?
+					</div>
 
+					<a href="#" class="info__cta" id="error-close">Sluit</a>
+				</div>
 			</div>
 		</div>
 	</section>

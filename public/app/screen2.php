@@ -1,8 +1,10 @@
 <?php
 
-	if(isset($_GET["zipcode"]) && $_GET["depth"]) {
+	if( isset($_GET["zipcode"]) && $_GET["depth"] && $_GET["number"] ) {
 		$depth = $_GET["depth"];
 		$zipcode = $_GET["zipcode"];
+		$number = $_GET["number"];
+
 	} else {
 		header('location: screen1.php');
 		die();
@@ -80,7 +82,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<a href="screen3.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>" class="cta__button">Check mijn waterpeil!</a>
+					<input type="hidden" id="inputX">
+					<a href="screen3.php?depth=<?php echo $depth ?>&zipcode=<?php echo $zipcode ?>&number=<?php echo $number ?>" class="cta__button">Check mijn waterpeil!</a>
 				</div>
 				<div class="col-12">
 					<span class="cta__error">

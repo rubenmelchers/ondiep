@@ -9,7 +9,8 @@ $fields = ['id', 'peilbuiscode', 'straat', 'huisnummer', 'longitude', 'latitude'
 $table_join = "peilbuis_meting";
 $fields_join = ['id', 'peilbuis_id', 'nap_hoogte_meetpunt', 'meetdatum', 'grondwaterstand', 'nap_hoogte_maaiveld'];
 
-header('Access-Control-Allow-Origin: http://localhost:63342');
+// header('Access-Control-Allow-Origin: http://localhost:8888');
+header('Access-Control-Allow-Origin: http://localhost');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

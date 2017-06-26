@@ -19,8 +19,9 @@ $transitionspeedslower: 500ms;
 $app-primary: #565656;
 $app-water: #98D1F5;
 
-$button-primary: #FDC46A;
-$button-secondary: #BD8C40;
+$button-primary: #C9D300;
+$button-secondary: #AFB702;
+$button-inactive: lighten($app-primary, 25%);
 
 $info-primary: #81C5F0;
 $info-secondary: #038EE6;
@@ -81,5 +82,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 $easeInOutFast: cubic-bezier(1,0,0,1);
+
+$loader: cubic-bezier(0, 0, 1, 1);
 
 $authenticMotion: cubic-bezier(.4,0,.2,1);
